@@ -17,17 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="min-h-screen bg-background dark font-sans antialiased"
-    >
-      <body className={pop.className}>
-        <Toaster
-          theme="dark"
-          richColors
-          visibleToasts={1}
-          position="bottom-center"
-        />
+    <html lang="en" className="dark min-h-screen bg-background font-sans antialiased">
+      <body className={pop.className + "select-none"}>
+        <Toaster theme="dark" richColors visibleToasts={1} position="bottom-center" />
         {children}
       </body>
     </html>

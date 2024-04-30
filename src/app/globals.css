@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+[data-ut-element="button"] {
+  @apply !bg-white !text-black;
+}
+
+[data-ut-element="label"] {
+  @apply !text-gray-400;
+}
+
+*[data-ut-element="button"][data-state="uploading"]::after {
+  @apply !bg-gray-200 !text-gray-400;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

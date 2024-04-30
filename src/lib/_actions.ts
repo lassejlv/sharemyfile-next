@@ -25,3 +25,18 @@ export const GetFiles = async () => {
     },
   });
 };
+
+export const CreateFileShareLink = async (fileId: string) => {
+  const file = await prisma.file.findUnique({ where: { id: fileId } });
+  if (!file) return "File not found";
+
+  const newShareLink = await prisma.shareLink.create({
+    data: {
+      file_id: fileId,
+      // 24 hours from now
+      expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
+    },
+  });
+
+  return newShareLink;
+};
